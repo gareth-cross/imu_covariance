@@ -1,0 +1,17 @@
+<launch>
+    <!-- launch imu to test -->
+    <include file="$(find imu_3dm_gx4)/launch/imu.launch"/>
+
+    <node pkg="imu_covariance" name="imu_covariance" type="imu_covariance"
+        output="screen">
+        <rosparam command="load" file="$(find imu_covariance)/param/sample.yml"/>
+        <remap from="~imu" to="/imu_3dm_gx4/imu"/>
+        <remap from="~magnetic_field" to="/imu_3dm_gx4/magnetic_field"/>
+        <remap from="~pressure" to="/imu_3dm_gx4/pressure"/>
+
+        <remap from="~imu_cov" to="imu_cov"/>
+        <remap from="~magnetic_field_cov" to="magnetic_field_cov"/>
+        <remap from="~pressure_cov" to="pressure_cov"/>
+    </node>
+
+</launch>
