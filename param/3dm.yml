@@ -1,0 +1,14 @@
+noise_std:
+    linear_acceleration:  # m/s^2
+        x: 0.5
+        y: 0.5
+        z: 0.5
+    angular_velocity:     # rad/s
+        x: 0.01
+        y: 0.01
+        z: 0.01
+    magnetic_field:       # gauss
+        x: 0.2
+        y: 0.2
+        z: 0.2
+    pressure: 0.15        # Units milli-bar

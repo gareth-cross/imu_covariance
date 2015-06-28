@@ -1,0 +1,21 @@
+<launch>
+  <arg name="output" default="screen"/>
+  <arg name="imu" default="imu"/>
+  <arg name="config"/>
+
+  <!-- Node -->
+  <node pkg="imu_covariance"
+    name="imu_covariance"
+    type="imu_covariance"
+    output="$(arg output)"
+    ns="$(arg imu)">
+    <rosparam command="load" file="$(arg config)"/>
+
+    <remap from="~imu" to="imu"/>
+    <remap from="~magnetic_field" to="magnetic_field"/>
+    <remap from="~pressure" to="pressure"/>
+    <remap from="~imu_cov" to="imu_cov"/>
+    <remap from="~magnetic_field_cov" to="magnetic_field_cov"/>
+    <remap from="~pressure_cov" to="pressure_cov"/>
+  </node>
+</launch>
